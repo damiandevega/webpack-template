@@ -1,0 +1,19 @@
+{
+  "name": "webpack-template",
+  "version": "1.0.0",
+  "description": "webpack starting template",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack-dev-server",
+    "build:prod": "webpack -p"
+  },
+  "author": "Damian de Vega",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
