@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "http://the-most-awesome-website.com/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -90,10 +90,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _hello_world__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _components_hello_world_button_hello_world_button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _add_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 
 
-helloWorld();
+
+const helloWorldButton = new _components_hello_world_button_hello_world_button__WEBPACK_IMPORTED_MODULE_0__["default"]();
+helloWorldButton.render();
+// addImage();
 
 /***/ }),
 /* 1 */
@@ -101,11 +105,44 @@ helloWorld();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function helloWorld() {
-    console.log('hello world');
+class HelloWorldButton {
+    render() {
+        const button = document.createElement('button');
+        button.innerHTML = 'Hello World';
+        const body = document.querySelector('body');
+        body.appendChild(button);
+    }
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (helloWorld);
+/* harmony default export */ __webpack_exports__["default"] = (HelloWorldButton);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _kauai_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _kauai_png__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_kauai_png__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function addImage() {
+    const img = document.createElement('img');
+    img.alt = 'Kauai';
+    img.width = 300;
+    img.src = _kauai_png__WEBPACK_IMPORTED_MODULE_0___default.a;
+
+    const body = document.querySelector('body');
+    body.appendChild(img);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (addImage);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "5eea1a4f5a9fcf34ead0eabdff5ff284.png";
 
 /***/ })
 /******/ ]);

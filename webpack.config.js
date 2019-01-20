@@ -4,7 +4,18 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "./dist")
+        path: path.resolve(__dirname, "./dist"),
+        publicPath: "http://the-most-awesome-website.com/"
     },
-    mode: "none"
+    mode: "none",
+    module: {
+        rules: [
+            {
+                test: /\.(png|jpg)$/,
+                use: [
+                    "file-loader"
+                ]
+            }
+        ]
+    }
 }
