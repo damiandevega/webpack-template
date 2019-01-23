@@ -5,11 +5,11 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --config webpack.production.config",
-        "dev": "webpack --config webpack.development.config"
+        "dev": "webpack-dev-server --config webpack.development.config --hot"
     },
     "author": "Damian de Vega",
     "license": "ISC",
-    "devDependencies": {
+    "dependencies": {
         "@babel/core": "^7.2.2",
         "@babel/preset-env": "^7.2.3",
         "babel-loader": "^8.0.5",
@@ -27,5 +27,8 @@
         "uglifyjs-webpack-plugin": "^2.1.1",
         "webpack": "^4.28.4",
         "webpack-cli": "^3.2.1"
+    },
+    "devDependencies": {
+        "webpack-dev-server": "^3.1.14"
     }
 }
