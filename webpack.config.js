@@ -2,13 +2,14 @@ const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
     output: {
         filename: "bundle.[contenthash].js",
         path: path.resolve(__dirname, "dist"),
-        publicPath: "dist/"
+        publicPath: ""
     },
     mode: "none",
     module: {
@@ -41,6 +42,12 @@ module.exports = {
                         plugins: [ "transform-class-properties" ]
                     }
                 }
+            },
+            {
+                test: /\.hbs$/,
+                use: [
+                    "handlebars-loader"
+                ]
             }
         ]
     },
@@ -49,6 +56,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "styles.[contenthash].css"
         }),
-        new CleanWebpackPlugin("dist")
+        new CleanWebpackPlugin("dist"),
+        new HtmlWebpackPlugin({
+            title: "Webpack Template",
+            template: "src/index.hbs",
+            description: "webpack starting template code"
+        })
     ]
 }
