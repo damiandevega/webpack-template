@@ -4,13 +4,21 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        "hello-world": "./src/hello-world.js",
+        "kauai": "./src/kauai.js"
+    },
     output: {
-        filename: "bundle.[contenthash].js",
+        filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, "dist"),
         publicPath: ""
     },
     mode: "production",
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
+    },
     module: {
         rules: [
             {
@@ -52,13 +60,22 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "styles.[contenthash].css"
+            filename: "[name].[contenthash].css"
         }),
         new CleanWebpackPlugin("dist"),
         new HtmlWebpackPlugin({
+            filename: "hello-world.html",
+            chunks: ["hello-world", "vendors~hello-world~kauai"],
             title: "Webpack Template",
-            template: "src/index.hbs",
-            description: "webpack starting template code"
+            description: "webpack starting template code",
+            template: "src/page-template.hbs",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "kauai.html",
+            chunks: ["kauai", "vendors~hello-world~kauai"],
+            title: "Kauai",
+            description: "Kauai page",
+            template: "src/page-template.hbs",
         })
     ]
 }
