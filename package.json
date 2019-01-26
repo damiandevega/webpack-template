@@ -4,8 +4,9 @@
     "description": "webpack starting template",
     "main": "index.js",
     "scripts": {
+        "dev": "webpack-dev-server --config webpack.development.config --hot",
         "build": "webpack --config webpack.production.config",
-        "dev": "webpack-dev-server --config webpack.development.config --hot"
+        "start": "node src/server.js"
     },
     "author": "Damian de Vega",
     "license": "ISC",
@@ -16,6 +17,7 @@
         "babel-plugin-transform-class-properties": "^6.24.1",
         "clean-webpack-plugin": "^1.0.1",
         "css-loader": "^2.1.0",
+        "express": "^4.16.4",
         "file-loader": "^3.0.1",
         "handlebars": "^4.0.12",
         "handlebars-loader": "^1.7.1",
