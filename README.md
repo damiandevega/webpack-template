@@ -1,3 +1,3 @@
 # webpack starter template
 
--starting template for webpack projects
+-starter template for projects that use webpack
