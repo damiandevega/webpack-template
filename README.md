@@ -5,3 +5,5 @@
 -includes babel
 
 -includes sass
+
+-es6
