@@ -2,8 +2,6 @@
 
 -starter template for new JS projects
 
--includes babel
+-includes es6 & babel
 
 -includes sass
-
--es6
